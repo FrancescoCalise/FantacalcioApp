@@ -1,0 +1,5 @@
+{
+  "ConnectionStrings": {
+    "FantacalcioString": "Server=(localdb)\\MSSQLLocalDB;Initial Catalog=FantacalcioDB;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False"
+  }
+}
