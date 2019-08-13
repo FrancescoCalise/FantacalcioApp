@@ -1,0 +1,6 @@
+{
+  "ConnectionStrings": {
+    "FantacalcioString": "Server=DESKTOP-H59CI94;Initial Catalog=FantacalcioDB;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False",
+    "excelFilePath": "@\"C:\\Users\\Francesco Calise\\Desktop\\fapi\\fapi\\Data\\File\\ListaSvincolati_magic-forio-cup.xlsx\""
+  }
+}
