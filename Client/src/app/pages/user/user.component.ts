@@ -8,13 +8,23 @@ import { Player } from 'src/app/services/model/player';
   styleUrls: ['./user.component.css']
 })
 export class UserComponent implements OnInit {
-
-  Player: Player[]
-  constructor(private service: ApiService) { 
-    
+  player:Player[]
+  
+  constructor(private service: ApiService,) { 
+    service.allPlayers().subscribe(
+      (data: Player[]) => {
+        this.player = data;
+        console.log(this.player)
+      },
+      (err) => { 
+        //todo error
+       }
+    );
+    return;
   }
 
   ngOnInit() {
+    console.log()
   }
 
 }

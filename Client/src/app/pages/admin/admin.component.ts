@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ApiService } from 'src/app/services/api.service';
 import { Player } from 'src/app/services/model/player';
+import { NgbModal, NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'app-admin',
@@ -10,11 +11,31 @@ import { Player } from 'src/app/services/model/player';
 export class AdminComponent implements OnInit {
 
   Player: Player[]
-  constructor(private service: ApiService) { 
+  constructor(private service: ApiService,private modalService: NgbModal) { 
     
   }
 
   ngOnInit() {
   }
 
+  open() {
+    this.modalService.open(addChampionship, {
+      size: 'lg'
+    });
+  }
+
+}
+
+@Component({
+  selector: 'app-admin-1',
+  templateUrl: './modals/addChampionship.html',
+  styleUrls: ['./admin.component.css']
+})
+export class addChampionship {
+  constructor(public activeModal: NgbActiveModal) {}
+  
+  save(){
+    console.log('salvo sto cazzo')
+  }
+  
 }

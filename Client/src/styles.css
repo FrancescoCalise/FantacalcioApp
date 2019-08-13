@@ -6,3 +6,29 @@ body {
 .card-header:first-child{
 background-color: #15c9ca3d;  
 }
+.textCenter{
+  text-align: center;
+}
+.center {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+}
+
+.removeAnchorStyle,
+.removeAnchorStyle:link,
+.removeAnchorStyle:visited,
+.removeAnchorStyle:hover,
+.removeAnchorStyle:active{
+  color: #000000; /*color of your choosing*/
+  text-decoration: none;
+  font-weight: normal;
+}
+.ng-valid[required], .ng-valid.required  {
+  border-left: 5px solid #42A948; /* green */
+}
+
+.ng-invalid:not(form)  {
+  border-left: 5px solid #a94442; /* red */
+}

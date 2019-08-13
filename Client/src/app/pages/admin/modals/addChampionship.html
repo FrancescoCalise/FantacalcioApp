@@ -1,0 +1,37 @@
+<div class="modal-header">
+    <h4 class="modal-title">Aggiungi un campionato</h4>
+    <button type="button" class="close" aria-label="Close" (click)="activeModal.dismiss('Cross click')">
+        <span aria-hidden="true">&times;</span>
+    </button>
+</div>
+<div class="modal-body">
+    <div class="container">
+        
+        <form (ngSubmit)="save()" #heroForm="ngForm">
+            <div class="form-group">
+                <label for="nome">Nome</label>
+                <input type="text" class="form-control" id="nome" required>
+                <div [hidden]="nome.valid || nome.pristine"
+                    class="alert alert-danger">
+                    nome is required
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="anno">Anno</label>
+                <input type="text" class="form-control" id="anno" required>
+                <div [hidden]="anno.valid || anno.pristine"
+                    class="alert alert-danger">
+                    anno is required
+                </div>
+            </div>
+            
+            <button type="submit" class="btn btn-success" [disabled]="!heroForm.form" >Submit</button>    
+        </form>
+
+    </div>
+
+</div>
+<div class="modal-footer">
+    <button type="button" class="btn btn-outline-dark" (click)="activeModal.close('Close click')">Close</button>
+    
+</div>

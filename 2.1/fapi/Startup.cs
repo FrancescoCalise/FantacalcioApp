@@ -80,7 +80,7 @@ namespace fantacalcioApi
         {
             //todo : if contex
             
-                string filePath = @"C:\Users\Francesco Calise\Desktop\fapi\fapi\Data\File\ListaSvincolati_magic-forio-cup.xlsx";
+                string filePath = @"C:\Users\Francesco\Desktop\fa\2.1\fapi\Data\File\ListaSvincolati_magic-forio-cup.xlsx";
 
                 FileStream stream = File.Open(filePath, FileMode.Open, FileAccess.Read);
 
