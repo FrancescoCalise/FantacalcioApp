@@ -1,8 +1,10 @@
 import { Injectable } from '@angular/core';
 import { Observable, throwError } from 'rxjs';
 import { catchError } from 'rxjs/operators';
-import { HttpClient, HttpErrorResponse } from '@angular/common/http';
+import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http';
 import { Player } from './model/player';
+import { ChampionshipClass } from './model/championship';
+import { JsonPipe } from '@angular/common';
 
 @Injectable({
   providedIn: 'root'
@@ -13,7 +15,12 @@ import { Player } from './model/player';
 export class ApiService {
   private endPoint = 'http://localhost:1000/api/';
   public Player:Player[];
-
+ // Http Headers
+ httpOptions = {
+  headers: new HttpHeaders({
+    'Content-Type': 'application/json'
+  })
+}
   constructor(private http: HttpClient) {}
 
   // Funzione Get
@@ -29,18 +36,21 @@ export class ApiService {
 
 
   // @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
-  // FUNZIONE PER NOTE SPESA
+  // FUNZIONE per Aadmin
 
-  queryExpenseReports(userID?, stato?): Observable<any[]> {
+  /* queryExpenseReports(userID?, stato?): Observable<any[]> {
     return this.http
       .get<any[]>(
         this.endPoint + 'expense/query/' + userID + '/' + stato
       )
       .pipe(catchError(this.handleError));
-  }
-  SetStatusExpensNoteReport(reportId, stato) {
+  } */
+
+  addChampionship(nome, anno) {
+    debugger
+    var data = new ChampionshipClass(nome,anno);
     return this.http
-      .post(this.endPoint + 'expense/save/status/' + reportId + '/' + stato, [])
+      .post(this.endPoint + 'championship/addChampionship', data, this.httpOptions)
       .pipe(catchError(this.handleError));
   }
 }

@@ -4,7 +4,15 @@ export interface Championship {
 
     id:string,
     name:string,
-    isComplete:boolean,
+    isComplete?:boolean,
     anno:string,
-    squadre : Team[]
+    squadre?: Team[]
+}
+
+export class ChampionshipClass {
+    constructor(
+        public name:string,
+        public anno:string,  
+    )
+    {}
 }

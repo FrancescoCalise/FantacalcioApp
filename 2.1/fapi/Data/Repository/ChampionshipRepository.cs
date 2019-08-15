@@ -20,12 +20,12 @@ namespace fantacalcioApi.Data.Repository
         public string AddChampionship(Championship championship)
         {
             _context.Database.OpenConnection();
-            _context.Database.ExecuteSqlCommand("SET IDENTITY_INSERT [dbo].[Championships] on");
+            //_context.Database.ExecuteSqlCommand("SET IDENTITY_INSERT [dbo].[Championships] on");
 
             _context.Championships.Add(championship);
             //todo: try change for same errors
             _context.SaveChanges();
-            _context.Database.ExecuteSqlCommand("SET IDENTITY_INSERT [dbo].[Championships] off");
+            //_context.Database.ExecuteSqlCommand("SET IDENTITY_INSERT [dbo].[Championships] off");
 
             return "success";
         }
