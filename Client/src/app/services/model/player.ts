@@ -30,3 +30,11 @@ export class PlayerClass {
     {}
 }
 
+export class addPlayer{
+    constructor(
+        public id:number,
+        public soldValue:number,
+        public teamFantaId:string
+    ){}
+}
+

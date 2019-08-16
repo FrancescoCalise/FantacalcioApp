@@ -10,7 +10,7 @@ import { HomePageComponent } from './pages/homepage/homepage.component';
 import { ApiService } from './services/api.service';
 import { HttpClientModule } from '@angular/common/http';
 import { AdminComponent, addChampionship, addTeam } from './pages/admin/admin.component';
-import { UserComponent } from './pages/user/user.component';
+import { UserComponent, addPlayerInTeamModal } from './pages/user/user.component';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import { FormsModule,  } from '@angular/forms';
 import { ToastrModule } from 'ngx-toastr';
@@ -22,7 +22,8 @@ import { ToastrModule } from 'ngx-toastr';
     AdminComponent,
     UserComponent,
     addChampionship,
-    addTeam
+    addTeam,
+    addPlayerInTeamModal
     
   
   ],
@@ -41,6 +42,6 @@ import { ToastrModule } from 'ngx-toastr';
     ApiService,
   ],
   bootstrap: [AppComponent],
-  entryComponents: [addChampionship,addTeam]
+  entryComponents: [addChampionship,addTeam,addPlayerInTeamModal]
 })
 export class AppModule { }

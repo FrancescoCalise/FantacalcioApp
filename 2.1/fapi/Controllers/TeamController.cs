@@ -29,6 +29,7 @@ namespace fantacalcioApi.Controllers
             _logger = logger;
         }
         // GET api/team
+        [Route("getAll")]
         [HttpGet]
         [ProducesResponseType(200)]
         [ProducesResponseType(400)]

@@ -78,7 +78,7 @@ export class addTeam {
   constructor(public activeModal: NgbActiveModal,private service: ApiService,private toastr: ToastrService) {
     this.service.allChampionship().subscribe(
       (data)=>{
-        this.allchampionships =data;
+        this.allchampionships = data;
     },
     (err) => {
       this.toastr.error(err.message,'Errore');

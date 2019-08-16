@@ -2,10 +2,10 @@ import { Injectable } from '@angular/core';
 import { Observable, throwError } from 'rxjs';
 import { catchError } from 'rxjs/operators';
 import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http';
-import { Player } from './model/player';
+import { Player, addPlayer } from './model/player';
 import { ChampionshipClass, Championship } from './model/championship';
 import { environment } from '../../environments/environment';
-import { TeamClass } from './model/team';
+import { TeamClass, Team } from './model/team';
 
 @Injectable({
   providedIn: 'root'
@@ -23,7 +23,16 @@ export class ApiService {
   })
 }
   constructor(private http: HttpClient) {
-    console.log(this.endPoint)
+    this.allPlayers().subscribe(
+      (data: Player[]) => {
+        console.log('addPlayer')
+        localStorage.setItem('Player', JSON.stringify(data));
+      },
+      (err) => { 
+        
+       }
+    );
+    return;
   }
 
   // Funzione Get
@@ -35,6 +44,11 @@ export class ApiService {
   allChampionship(): Observable<Championship[]> {
     return this.http
       .get<Championship[]>(this.endPoint + 'championship/getAll')
+      .pipe(catchError(this.handleError));
+  }
+  allTeam(): Observable<Team[]> {
+    return this.http
+      .get<Team[]>(this.endPoint + 'team/getAll')
       .pipe(catchError(this.handleError));
   }
 
@@ -59,5 +73,13 @@ export class ApiService {
       .post(this.endPoint + 'team/addTeam', data, this.httpOptions)
       .pipe(catchError(this.handleError));
   }
-  
+
+   // @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+  // FUNZIONE per User
+  addPlayerInTeam(id, value,teamid) {
+    var data = new addPlayer(id,value,teamid);
+    return this.http
+      .post(this.endPoint + 'player/addPlayerInTeam', data, this.httpOptions)
+      .pipe(catchError(this.handleError));
+  }
 }

@@ -51,7 +51,29 @@ namespace fantacalcioApi.Controllers
                 return BadRequest($"failed:{ex}");
             }
         }
-     
+
+        // Save api/championship
+        [Route("addPlayerInTeam")]
+        [HttpPost]
+        [ProducesResponseType(200)]
+        [ProducesResponseType(400)]
+        public ActionResult<IEnumerable<Championship>> addPlayerInTeam([FromBody]AddPlayerInTeam player)
+        {
+            //i paramatri nome ed anno vengono inviati dal client
+
+            try
+            {
+                return Ok(_playerRepository.addPlayerInTeam(player));
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError($"failed:{ex}");
+
+                return BadRequest($"failed:{ex}");
+            }
+
+        }
+
     }
 
 }
