@@ -53,6 +53,7 @@ export class addChampionship {
     this.service.addChampionship(name,anno).subscribe(
       (data) => {
         this.toastr.success(data,'OK');
+        this.activeModal.close('Close click');
       },
       (err) => {
         this.toastr.error(err.message,'Errore');

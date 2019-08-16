@@ -7,7 +7,7 @@
 <div class="modal-body">
     <div class="container">
         
-        <form (ngSubmit)="save(name.value,user.value,championship.model.id)" #addTeamForm="ngForm">
+        <form (ngSubmit)="save(name.value,user.value,championshipFantaId.value)" #addTeamForm="ngForm">
             <div class="form-group">
                 <label for="nome">Nome Team</label>
                 <input type="text" class="form-control" id="name" required
@@ -25,13 +25,14 @@
                 </div>
             </div>
             <div class="form-group">
-                <label for="championship">Nome Lega</label>
-                <select class="form-control" id="championship" class="form-control"  [(ngModel)]="model.championship" required   name="championship" #championship="ngModel" >
-                    <option *ngFor="let championship of allchampionships" id="championship" [ngValue]="championship"   >
+                <label for="championshipFantaId">Nome Lega</label>
+                <select class="form-control" id="championshipFantaId" class="form-control"  [(ngModel)]="model.championshipFantaId" required   
+                        name="championshipFantaId" #championshipFantaId="ngModel" >
+                    <option *ngFor="let championship of allchampionships" id="championshipFantaId" [ngValue]="championship.id"   >
                          {{championship.name}}
                     </option>
                 </select>
-                <div [hidden]="championship.valid" class="alert alert-danger">
+                <div [hidden]="championshipFantaId.valid" class="alert alert-danger">
                     Il campo è obbligatorio
                 </div>
             </div>

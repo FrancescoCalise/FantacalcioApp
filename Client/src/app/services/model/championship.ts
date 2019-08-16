@@ -12,7 +12,8 @@ export interface Championship {
 export class ChampionshipClass {
     constructor(
         public name:string,
-        public anno:string,  
+        public anno:string,
+  
     )
     {}
 }
