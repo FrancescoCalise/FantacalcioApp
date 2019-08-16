@@ -27,6 +27,7 @@ namespace fantacalcioApi.Controllers
 
         // GET api/championship
         [HttpGet]
+        [Route("getAll")]
         [ProducesResponseType(200)]
         [ProducesResponseType(400)]
         public ActionResult<IEnumerable<Championship>> GetAll()
@@ -62,7 +63,7 @@ namespace fantacalcioApi.Controllers
 
         }
         // Save api/championship
-        [Route("AddChampionship")]
+        [Route("addChampionship")]
         [HttpPost]
         [ProducesResponseType(200)]
         [ProducesResponseType(400)]
@@ -71,7 +72,6 @@ namespace fantacalcioApi.Controllers
             //i paramatri nome ed anno vengono inviati dal client
             championship.Id = new Guid();
             championship.IsComplete = false;
-            championship.Squadre = null;
             try
             {
                 return Ok(_championshipRepository.AddChampionship(championship));

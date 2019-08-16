@@ -9,10 +9,11 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { HomePageComponent } from './pages/homepage/homepage.component';
 import { ApiService } from './services/api.service';
 import { HttpClientModule } from '@angular/common/http';
-import { AdminComponent, addChampionship } from './pages/admin/admin.component';
+import { AdminComponent, addChampionship, addTeam } from './pages/admin/admin.component';
 import { UserComponent } from './pages/user/user.component';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { FormsModule,  } from '@angular/forms';
+import { ToastrModule } from 'ngx-toastr';
 
 @NgModule({
   declarations: [
@@ -21,6 +22,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     AdminComponent,
     UserComponent,
     addChampionship,
+    addTeam
     
   
   ],
@@ -31,6 +33,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     BrowserAnimationsModule,
     NgbModule,
     FormsModule,
+    ToastrModule.forRoot({positionClass: 'toast-bottom-full-width'}),
     ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production }),
     
   ],
@@ -38,6 +41,6 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     ApiService,
   ],
   bootstrap: [AppComponent],
-  entryComponents: [addChampionship]
+  entryComponents: [addChampionship,addTeam]
 })
 export class AppModule { }

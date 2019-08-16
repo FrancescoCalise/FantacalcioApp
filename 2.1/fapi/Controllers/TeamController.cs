@@ -47,14 +47,20 @@ namespace fantacalcioApi.Controllers
 
         }
         // Save api/team
+        [Route("addTeam")]
         [HttpPost]
         [ProducesResponseType(200)]
         [ProducesResponseType(400)]
         public ActionResult<IEnumerable<Team>> AddTeam(Team team)
         {
+            team.FantaMilioni = 500;
+            team.Id = new Guid();
+
+
             try
             {
-                return Ok(_teamRepository.AddTeam(team));
+               var result = _teamRepository.AddTeam(team);
+                return Ok();
             }
             catch (Exception ex)
             {

@@ -21,20 +21,18 @@ namespace fantacalcioApi.Data.Repository
         public IEnumerable<Team> GetTeams()
         {
             return _context.Teams
-                .OrderBy(c => c.Anno)
+                .OrderBy(c => c.Name)
                 .ToList();
         }
         public string AddTeam(Team team)
         {
             _context.Database.OpenConnection();
-            _context.Database.ExecuteSqlCommand("SET IDENTITY_INSERT [dbo].[Teams] on");
 
             _context.Teams.Add(team);
             //todo: try change for same errors
             _context.SaveChanges();
-            _context.Database.ExecuteSqlCommand("SET IDENTITY_INSERT [dbo].[Teams] off");
 
-            return "success";
+            return "ok";
         }
 
 

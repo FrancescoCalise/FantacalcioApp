@@ -112,7 +112,7 @@ namespace fantacalcioApi
                     player.StartValue = Convert.ToInt32(item[5]);
                     player.CurrentValue = Convert.ToInt32(item[6]);
                     player.SoldValue = 0;
-                    player.FantaTeam = null;
+                    player.FantaTeamID = string.Empty;
 
 
                     _context.Players.Add(player);

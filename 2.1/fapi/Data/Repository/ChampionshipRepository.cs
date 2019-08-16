@@ -27,13 +27,12 @@ namespace fantacalcioApi.Data.Repository
             _context.SaveChanges();
             //_context.Database.ExecuteSqlCommand("SET IDENTITY_INSERT [dbo].[Championships] off");
 
-            return "success";
+            return "Lega creata con successo";
         }
 
         public IEnumerable<Championship> GetChampionships(Guid guid)
         {
             return _context.Championships
-                 .Include(c => c.Squadre)
                  .Where(c => c.Id == guid);
 
         }
@@ -41,7 +40,6 @@ namespace fantacalcioApi.Data.Repository
         public IEnumerable<Championship> GetAllChampionships()
         {
             return _context.Championships
-                 .Include(c => c.Squadre)
                  .OrderBy(c => c.Anno)
                  .ToList();
         }
