@@ -11,7 +11,7 @@ namespace fantacalcioApi.Data.Entities
         public int StartValue { get; set; }
         public int CurrentValue { get; set; }
         public int SoldValue { get; set; }
-        public string FantaTeamID { get; set; }
-        public string Team { get; set; }
+        public string TeamFantaId { get; set; }
+        public string TeamReal { get; set; }
     }
 }

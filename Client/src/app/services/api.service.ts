@@ -6,6 +6,7 @@ import { Player } from './model/player';
 import { ChampionshipClass, Championship } from './model/championship';
 import { environment } from '../../environments/environment';
 import { TeamClass } from './model/team';
+import { Guid } from "guid-typescript";
 
 @Injectable({
   providedIn: 'root'

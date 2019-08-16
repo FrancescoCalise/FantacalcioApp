@@ -107,12 +107,12 @@ namespace fantacalcioApi
                     player.Id = Convert.ToInt32(item[0]);
                     player.Role = (string)item[1];
                     player.Name = (string)item[2];
-                    player.Team = (string)item[3];
+                    player.TeamReal = (string)item[3];
                     player.AverageFv = (double)item[4];
                     player.StartValue = Convert.ToInt32(item[5]);
                     player.CurrentValue = Convert.ToInt32(item[6]);
                     player.SoldValue = 0;
-                    player.FantaTeamID = string.Empty;
+                    player.TeamFantaId = string.Empty;
 
 
                     _context.Players.Add(player);

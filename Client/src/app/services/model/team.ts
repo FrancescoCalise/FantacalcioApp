@@ -1,5 +1,6 @@
 import { Player } from './player';
 import { Championship } from './championship';
+import { Guid } from "guid-typescript";
 
 export interface Team {
     
@@ -15,7 +16,7 @@ export class TeamClass {
     constructor(
         public name:string,
         public user:string,
-        public championship:Championship
+        public championshipFantaId:Guid
     )
     {}
 }

@@ -1,4 +1,5 @@
 import { Team } from './team';
+import { Guid } from 'guid-typescript';
 
 export interface Player {
     id: number,
@@ -23,8 +24,8 @@ export class PlayerClass {
    public startValue:number,
    public currentValue:number,
    public soldValue:number,
-   public fantaTeam?:Team,
-   public team?: string,
+   public teamFantaId?:Guid,
+   public teamReal?: string,
     )
     {}
 }

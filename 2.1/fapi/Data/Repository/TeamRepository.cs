@@ -29,6 +29,13 @@ namespace fantacalcioApi.Data.Repository
             _context.Database.OpenConnection();
 
             _context.Teams.Add(team);
+            var contex = _context.Championships.FirstOrDefault(c => c.Id == Guid.Parse(team.ChampionshipFantaId));
+
+            if (contex.Squadre == null ? true :false)
+            {
+                _context.Championships.FirstOrDefault(c => c.Id == Guid.Parse(team.ChampionshipFantaId)).Squadre = new List<Team>();
+            }
+            _context.Championships.FirstOrDefault(c => c.Id == Guid.Parse(team.ChampionshipFantaId)).Squadre.Add(team);
             //todo: try change for same errors
             _context.SaveChanges();
 

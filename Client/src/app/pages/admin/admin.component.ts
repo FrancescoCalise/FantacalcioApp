@@ -5,6 +5,7 @@ import { NgbModal, NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 import { ChampionshipClass,Championship } from 'src/app/services/model/championship';
 import { ToastrService} from 'ngx-toastr';
 import { TeamClass } from 'src/app/services/model/team';
+import { Guid } from "guid-typescript";
 
 @Component({
   selector: 'app-admin',
@@ -85,13 +86,13 @@ export class addTeam {
     )
   }
   
-  save(name,user,championshipName){
+  save(name,user,championship){
+    let champ = this.allchampionships.find(f => f.id == championship)
     
-    let champ = this.allchampionships.find(f => f.name == championshipName)
-
     this.service.addTeam(name,user,champ.id).subscribe(
       (data) => {
-        this.toastr.success(data,'OK');
+        this.toastr.success(data,'Squadra creata con successo');
+        this.activeModal.close('Close click');
       },
       (err) => {
         this.toastr.error(err.message,'Errore');

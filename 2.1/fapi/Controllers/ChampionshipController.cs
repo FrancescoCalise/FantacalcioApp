@@ -72,6 +72,8 @@ namespace fantacalcioApi.Controllers
             //i paramatri nome ed anno vengono inviati dal client
             championship.Id = new Guid();
             championship.IsComplete = false;
+            championship.Squadre = new List<Team>();
+
             try
             {
                 return Ok(_championshipRepository.AddChampionship(championship));

@@ -56,7 +56,6 @@ namespace fantacalcioApi.Controllers
             team.FantaMilioni = 500;
             team.Id = new Guid();
 
-
             try
             {
                var result = _teamRepository.AddTeam(team);
