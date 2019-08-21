@@ -5,6 +5,7 @@ import { AdminComponent } from './pages/admin/admin.component';
 import { UserComponent } from './pages/user/user.component';
 import { AddChampAndTeamGuard } from './guard/add-champ-and-team.guard';
 import { AddTeamAndChampionshipComponent } from './pages/addTeamAndChampionship/addTeamAndChampionship.component';
+import { MyTeamComponent } from './pages/myTeam/myTeam.component';
 
 
 const routes: Routes = [
@@ -24,6 +25,11 @@ const routes: Routes = [
   {
     path: 'selectTeamAndChampionship',
     component: AddTeamAndChampionshipComponent,
+  },
+  {
+    path: 'myTeam',
+    component: MyTeamComponent,
+    canActivate: [AddChampAndTeamGuard],
   }
 ];
 

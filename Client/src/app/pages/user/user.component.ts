@@ -7,6 +7,7 @@ import { AddDifensoreInTeamModalComponent } from './modals/AddDifensoreInTeamMod
 import { AddCentrocampistaInTeamModalComponent } from './modals/AddCentrocampistaInTeamModal';
 import { AddAttaccanteInTeamModalComponent } from './modals/AddAttaccanteInTeamModal';
 import { ShowBudgetModalComponent } from './modals/ShowBudgetModalComponent';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-user',
@@ -14,7 +15,8 @@ import { ShowBudgetModalComponent } from './modals/ShowBudgetModalComponent';
   styleUrls: ['./user.component.css']
 })
 export class UserComponent implements OnInit {
-  constructor(private service: ApiService, private modalService: NgbModal, private toastr: ToastrService) {
+  constructor(private service: ApiService, private modalService: NgbModal, private toastr: ToastrService, private route: Router) {
+
   }
 
   ngOnInit() {
@@ -47,6 +49,9 @@ export class UserComponent implements OnInit {
     this.modalService.open(ShowBudgetModalComponent, {
       size: 'lg',
     });
+  }
+  goToMyTeam() {
+    this.route.navigate(['/myTeam']);
   }
 }
 

@@ -24,7 +24,7 @@ export class AddChampAndTeamGuard implements CanActivate  {
     state: RouterStateSnapshot
   ): Observable<boolean> | Promise<boolean> | boolean {
     return new Promise((resolve, reject) => {
-      if (localStorage.getItem('ChampionshipId') == null ||localStorage.getItem('FantaTeamId') == null) {
+      if (localStorage.getItem('ChampionshipId') == null || localStorage.getItem('FantaTeamId') == null) {
         this.route.navigate(['/selectTeamAndChampionship']);
         resolve(false);
       } else {
@@ -32,5 +32,5 @@ export class AddChampAndTeamGuard implements CanActivate  {
       }
     });
   }
-  
+
 }

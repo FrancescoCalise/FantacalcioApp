@@ -1,0 +1,45 @@
+<div class="container">
+  <h3 class="card-header text-center">{{myTeam.name}}</h3>
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Role</th>
+        <th scope="col">Name</th>
+        <th scope="col">Costo</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let player of myPortieri; index as i">
+        <th scope="row"> {{ i + 1 }}</th>
+        <td> {{ player.role }} </td>
+        <td>{{ player.name }}</td>
+        <td>{{ player.soldValue}}</td>
+      </tr>
+    </tbody>
+    <tbody>
+      <tr *ngFor="let player of myDifensori; index as i">
+        <th scope="row">{{ i + 1 }}</th>
+        <td> {{ player.role }} </td>
+        <td>{{ player.name }}</td>
+        <td>{{ player.soldValue}}</td>
+      </tr>
+    </tbody>
+    <tbody>
+      <tr *ngFor="let player of myCentrocampisti; index as i">
+        <th scope="row"> {{ i + 1 }}</th>
+        <td> {{ player.role }} </td>
+        <td>{{ player.name }}</td>
+        <td>{{ player.soldValue}}</td>
+      </tr>
+    </tbody>
+    <tbody>
+      <tr *ngFor="let player of myAttaccanti; index as i">
+        <th scope="row"> {{ i + 1 }}</th>
+        <td> {{ player.role }} </td>
+        <td>{{ player.name }}</td>
+        <td>{{ player.soldValue}}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>

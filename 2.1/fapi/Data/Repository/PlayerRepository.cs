@@ -28,12 +28,10 @@ namespace fantacalcioApi.Data.Repository
             _context.Players.FirstOrDefault(p => p.Id == player.Id).SoldValue = playerComplete.SoldValue;
             _context.Players.FirstOrDefault(p => p.Id == player.Id).TeamFantaId = playerComplete.TeamFantaId;
 
-            if (findTeam.Giocatori == null ? true : false)
-            {
-                _context.Teams.FirstOrDefault(t => t.Id == Guid.Parse(player.TeamFantaId)).Giocatori = new List<Player>();
-            }
-            _context.Teams.FirstOrDefault(t => t.Id == Guid.Parse(player.TeamFantaId)).Giocatori.Add(playerComplete);
-            _context.Teams.FirstOrDefault(t => t.Id == Guid.Parse(player.TeamFantaId)).FantaMilioni= _context.Teams.FirstOrDefault(t => t.Id == Guid.Parse(player.TeamFantaId)).FantaMilioni - playerComplete.SoldValue;
+
+            _context.Teams.FirstOrDefault(t => t.Id == Guid.Parse(player.TeamFantaId)).Giocatori = _context.Teams.FirstOrDefault(t => t.Id == Guid.Parse(player.TeamFantaId)).Giocatori++;
+
+            _context.Teams.FirstOrDefault(t => t.Id == Guid.Parse(player.TeamFantaId)).FantaMilioni = _context.Teams.FirstOrDefault(t => t.Id == Guid.Parse(player.TeamFantaId)).FantaMilioni - playerComplete.SoldValue;
             //todo: try change for same errors
             _context.SaveChanges();
 
@@ -45,7 +43,7 @@ namespace fantacalcioApi.Data.Repository
             return _context.Players
                 .OrderBy(c => c.Name)
                 .ToList();
-       
+
         }
 
     }

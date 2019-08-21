@@ -56,6 +56,7 @@ namespace fantacalcioApi.Controllers
         {
             team.FantaMilioni = 500;
             team.Id = new Guid();
+            team.Giocatori = 0;
 
             try
             {

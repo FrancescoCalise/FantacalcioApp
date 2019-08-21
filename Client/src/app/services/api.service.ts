@@ -21,18 +21,10 @@ export class ApiService {
     headers: new HttpHeaders({
       'Content-Type': 'application/json'
     })
-  }
-  constructor(private http: HttpClient) {
-    this.allPlayers().subscribe(
-      (data: Player[]) => {
-        console.log('addPlayer')
-        localStorage.setItem('Player', JSON.stringify(data));
-      },
-      (err) => {
+  };
 
-      }
-    );
-    return;
+  constructor(private http: HttpClient) {
+
   }
 
   // Funzione Get

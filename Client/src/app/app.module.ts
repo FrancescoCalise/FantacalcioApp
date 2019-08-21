@@ -21,6 +21,7 @@ import { AddDifensoreInTeamModalComponent } from './pages/user/modals/AddDifenso
 import { AddAttaccanteInTeamModalComponent } from './pages/user/modals/AddAttaccanteInTeamModal';
 import { AddCentrocampistaInTeamModalComponent } from './pages/user/modals/AddCentrocampistaInTeamModal';
 import { ShowBudgetModalComponent } from './pages/user/modals/ShowBudgetModalComponent';
+import { MyTeamComponent } from './pages/myTeam/myTeam.component';
 
 @NgModule({
   declarations: [
@@ -28,6 +29,7 @@ import { ShowBudgetModalComponent } from './pages/user/modals/ShowBudgetModalCom
     HomePageComponent,
     AdminComponent,
     UserComponent,
+    MyTeamComponent,
     addChampionship,
     addTeam,
     AddPortiereInTeamModalComponent,
