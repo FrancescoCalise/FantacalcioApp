@@ -25,6 +25,8 @@ export class AddPortiereInTeamModalComponent {
       (data: Player[]) => {
         this.players = data;
         this.playerFilter = data.filter(p => p.role === 'P' && p.teamFantaId === '' && !p.name.endsWith('*'));
+        this.model.id = this.playerFilter[0].id;
+        this.model.soldValue = 1;
         this.myPlayers = this.players.filter(p => p.teamFantaId === this.teamFantaId);
         this.soltEmpty = 3 - this.myPlayers.filter(t => t.role === 'P').length;
       },
@@ -41,7 +43,7 @@ export class AddPortiereInTeamModalComponent {
       return;
     }
 
-    if ( this.myTeam.fantaMilioni - (25 - this.myPlayers.length) < soldValue) {
+    if ( this.myTeam.fantaMilioni - (25 - this.myPlayers.length) <= soldValue) {
       this.toastr.error('budget non sufficiente', 'Errore');
       return;
     }

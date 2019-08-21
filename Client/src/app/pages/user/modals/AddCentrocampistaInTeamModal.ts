@@ -25,6 +25,8 @@ export class AddCentrocampistaInTeamModalComponent {
       (data: Player[]) => {
         this.players = data;
         this.playerFilter = data.filter(p => p.role === 'C' && p.teamFantaId === '' && !p.name.endsWith('*'));
+        this.model.id = this.playerFilter[0].id;
+        this.model.soldValue = 1;
         this.myPlayers = this.players.filter(p => p.teamFantaId === this.teamFantaId);
         this.soltEmpty = 8 - this.myPlayers.filter(t => t.role === 'C').length;
       },
@@ -39,7 +41,7 @@ export class AddCentrocampistaInTeamModalComponent {
       this.toastr.error('Non puoi comprare altri giocatori', 'Errore');
       return;
     }
-    if ( this.myTeam.fantaMilioni - (25 - this.myPlayers.length) < soldValue) {
+    if ( this.myTeam.fantaMilioni - (25 - this.myPlayers.length) <= soldValue) {
       this.toastr.error('budget non sufficiente', 'Errore');
       return;
     }

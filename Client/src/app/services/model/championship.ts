@@ -1,8 +1,9 @@
 import { Team } from './team';
+import { Guid } from 'guid-typescript';
 
 export interface Championship {
 
-    id: string;
+    id: Guid;
     name: string;
     isComplete?: boolean;
     anno: string;

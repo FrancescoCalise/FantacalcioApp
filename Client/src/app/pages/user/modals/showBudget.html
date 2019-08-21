@@ -6,25 +6,18 @@
 </div>
 <div class="modal-body">
   <div class="container" style="padding: 10px;">
-    <h3 class="text-center"></h3>
-    <div class="col-sm"></div>
-    <div class="col-sm">
-      <div class="card" *ngFor="let team of teamsFilter">
-        <div class="card-body">
-          <div class="row" style="margin-bottom:2% ">
-            <div class="col-sm">Nome Team: </div>
-            <div class="col-sm"><b>{{team?.name}}</b> </div>
-            <div class="col-sm">Budget Residuto: </div>
-            <div class="col-sm"><b>{{team?.fantaMilioni}}</b></div>
-            <div *ngIf='team?.giocatori != null'>
-              <div class="col-sm">Solt Liberi: </div>
-              <div class="col-sm"><b> {{ team?.giocatori }}</b></div>
-            </div>
-          </div>
+    <div *ngFor="let team of teamsFilter">
+      <div class="card-body">
+        <div class="row" style="margin-bottom:2% ">
+          <div class="col-sm">Nome Team: </div>
+          <div class="col-sm"><b>{{team?.name}}</b> </div>
+          <div class="col-sm">Budget Residuto: </div>
+          <div class="col-sm"><b>{{team?.fantaMilioni}}</b></div>
+          <div class="col-sm">Solt Liberi: </div>
+          <div class="col-sm"><b> {{ team?.giocatori }}</b></div>
         </div>
       </div>
     </div>
-    <div class="col-sm"></div>
   </div>
 </div>
 <div class="modal-footer">

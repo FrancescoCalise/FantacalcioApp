@@ -9,7 +9,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HomePageComponent } from './pages/homepage/homepage.component';
 import { ApiService } from './services/api.service';
 import { HttpClientModule } from '@angular/common/http';
-import { AdminComponent, addChampionship, addTeam } from './pages/admin/admin.component';
+import { AdminComponent, } from './pages/admin/admin.component';
 import { UserComponent } from './pages/user/user.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { FormsModule, } from '@angular/forms';
@@ -22,6 +22,8 @@ import { AddAttaccanteInTeamModalComponent } from './pages/user/modals/AddAttacc
 import { AddCentrocampistaInTeamModalComponent } from './pages/user/modals/AddCentrocampistaInTeamModal';
 import { ShowBudgetModalComponent } from './pages/user/modals/ShowBudgetModalComponent';
 import { MyTeamComponent } from './pages/myTeam/myTeam.component';
+import { AddChampionship } from './pages/admin/AddChampionship';
+import { AddTeam } from './pages/admin/AddTeam';
 
 @NgModule({
   declarations: [
@@ -30,8 +32,8 @@ import { MyTeamComponent } from './pages/myTeam/myTeam.component';
     AdminComponent,
     UserComponent,
     MyTeamComponent,
-    addChampionship,
-    addTeam,
+    AddChampionship,
+    AddTeam,
     AddPortiereInTeamModalComponent,
     AddCentrocampistaInTeamModalComponent,
     AddAttaccanteInTeamModalComponent,
@@ -58,8 +60,8 @@ import { MyTeamComponent } from './pages/myTeam/myTeam.component';
   ],
   bootstrap: [AppComponent],
   entryComponents: [
-    addChampionship,
-    addTeam,
+    AddChampionship,
+    AddTeam,
     AddPortiereInTeamModalComponent,
     AddCentrocampistaInTeamModalComponent,
     AddAttaccanteInTeamModalComponent,
