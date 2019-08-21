@@ -5,15 +5,22 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
-import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HomePageComponent } from './pages/homepage/homepage.component';
 import { ApiService } from './services/api.service';
 import { HttpClientModule } from '@angular/common/http';
 import { AdminComponent, addChampionship, addTeam } from './pages/admin/admin.component';
-import { UserComponent, addPlayerInTeamModal } from './pages/user/user.component';
-import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
-import { FormsModule,  } from '@angular/forms';
+import { UserComponent } from './pages/user/user.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { FormsModule, } from '@angular/forms';
 import { ToastrModule } from 'ngx-toastr';
+import { AddChampAndTeamGuard } from './guard/add-champ-and-team.guard';
+import { AddTeamAndChampionshipComponent } from './pages/addTeamAndChampionship/addTeamAndChampionship.component';
+import { AddPortiereInTeamModalComponent } from './pages/user/modals/AddPortiereInTeamModal';
+import { AddDifensoreInTeamModalComponent } from './pages/user/modals/AddDifensoreInTeamModal';
+import { AddAttaccanteInTeamModalComponent } from './pages/user/modals/AddAttaccanteInTeamModal';
+import { AddCentrocampistaInTeamModalComponent } from './pages/user/modals/AddCentrocampistaInTeamModal';
+import { ShowBudgetModalComponent } from './pages/user/modals/ShowBudgetModalComponent';
 
 @NgModule({
   declarations: [
@@ -23,9 +30,14 @@ import { ToastrModule } from 'ngx-toastr';
     UserComponent,
     addChampionship,
     addTeam,
-    addPlayerInTeamModal
-    
-  
+    AddPortiereInTeamModalComponent,
+    AddCentrocampistaInTeamModalComponent,
+    AddAttaccanteInTeamModalComponent,
+    AddDifensoreInTeamModalComponent,
+    AddTeamAndChampionshipComponent,
+    ShowBudgetModalComponent
+
+
   ],
   imports: [
     BrowserModule,
@@ -34,14 +46,23 @@ import { ToastrModule } from 'ngx-toastr';
     BrowserAnimationsModule,
     NgbModule,
     FormsModule,
-    ToastrModule.forRoot({positionClass: 'toast-bottom-full-width'}),
+    ToastrModule.forRoot({ positionClass: 'toast-bottom-full-width' }),
     ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production }),
-    
+
   ],
   providers: [
     ApiService,
+    AddChampAndTeamGuard
   ],
   bootstrap: [AppComponent],
-  entryComponents: [addChampionship,addTeam,addPlayerInTeamModal]
+  entryComponents: [
+    addChampionship,
+    addTeam,
+    AddPortiereInTeamModalComponent,
+    AddCentrocampistaInTeamModalComponent,
+    AddAttaccanteInTeamModalComponent,
+    AddDifensoreInTeamModalComponent,
+    ShowBudgetModalComponent
+  ]
 })
 export class AppModule { }

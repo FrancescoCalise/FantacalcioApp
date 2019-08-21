@@ -1,52 +1,40 @@
 <div class="modal-header">
-        <h4 class="modal-title">Acquista un calciatore</h4>
-        <button type="button" class="close" aria-label="Close" (click)="activeModal.dismiss('Cross click')">
-            <span aria-hidden="true">&times;</span>
-        </button>
-    </div>
-    <div class="modal-body">
-        <div class="container">
-                <!-- ,soldValue.value,TeamFantaId.value -->
-            <form (ngSubmit)="save(id.value,soldValue.value,teamFantaId.value)" #addPlayerInTeam="ngForm">
-                <div class="form-group">
-                    <label for="id">Nome calciatore</label>
-                    <select class="form-control" id="id" class="form-control"  [(ngModel)]="model.id" required   
-                            name="id" #id="ngModel" >
-                        <option *ngFor="let player of players" id="id" [ngValue]="player.id"   >
-                             {{player.name}}
-                        </option>
-                    </select>
-                    <div [hidden]="id.valid" class="alert alert-danger">
-                        Il campo è obbligatorio
-                    </div>
-                </div>
-               <div class="form-group">
-                    <label for="soldValue">Costo</label>
-                    <input type="int" class="form-control" id="soldValue" required
-                        [(ngModel)]="model.soldValue" name="soldValue" #soldValue="ngModel">
-                    <div [hidden]="soldValue.valid" class="alert alert-danger">
-                        Il campo è obbligatorio
-                    </div>
-                </div>
-                <div class="form-group">
-                        <label for="teamFantaId">Nome Squadra</label>
-                        <select class="form-control" id="teamFantaId" class="form-control"  [(ngModel)]="model.teamFantaId" required   
-                                name="teamFantaId" #teamFantaId="ngModel" >
-                            <option *ngFor="let team of teams" id="teamFantaId" [ngValue]="team.id"   >
-                                 {{team.name}}
-                            </option>
-                        </select>
-                        <div [hidden]="teamFantaId.valid" class="alert alert-danger">
-                            Il campo è obbligatorio
-                        </div> 
-                </div>
-                <button type="submit" class="btn btn-success" [disabled]="!addPlayerInTeam.form.valid" >Conferma</button>  
-            </form>
-    
+  <h4 class="modal-title">Acquista un calciatore</h4>
+  <button type="button" class="close" aria-label="Close" (click)="activeModal.dismiss('Cross click')">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+<div class="modal-body">
+  <div class="container">
+    <form (ngSubmit)="save(id.value,soldValue.value)" #addPlayerInTeam="ngForm">
+      <div class="form-group">
+        <label for="id">Nome calciatore</label>
+        <select class="form-control" id="id" class="form-control" [(ngModel)]="model.id" required name="id"
+          #id="ngModel">
+          <option *ngFor="let player of playerFilter " id="id" [ngValue]="player.id">
+            {{player.name}}
+          </option>
+        </select>
+        <div [hidden]="id.valid" class="alert alert-danger">
+          Il campo è obbligatorio
         </div>
-    
-    </div>
-    <div class="modal-footer">
-        <button type="button" class="btn btn-outline-dark" (click)="activeModal.close('Close click')">Close</button>
-        
-    </div>
+      </div>
+      <div class="form-group">
+        <label for="soldValue">Costo</label>
+        <input type="int" class="form-control" id="soldValue" required [(ngModel)]="model.soldValue" name="soldValue"
+          #soldValue="ngModel">
+        <div [hidden]="soldValue.valid" class="alert alert-danger">
+          Il campo è obbligatorio
+        </div>
+      </div>
+
+      <button type="submit" class="btn btn-success" [disabled]="!addPlayerInTeam.form.valid">Conferma</button>
+    </form>
+
+  </div>
+
+</div>
+<div class="modal-footer">
+  <button type="button" class="btn btn-outline-dark" (click)="activeModal.close('Close click')">Close</button>
+
+</div>

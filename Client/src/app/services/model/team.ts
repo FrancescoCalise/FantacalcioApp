@@ -9,7 +9,7 @@ export interface Team {
     user:string,
     giocatori: Player[],
     fantaMilioni:number,
-    championship:Championship
+    championshipFantaId:Guid
 }
 
 export class TeamClass {

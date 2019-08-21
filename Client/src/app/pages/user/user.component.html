@@ -1,15 +1,43 @@
 <div class="container">
-    <div class="row" style="margin-bottom:2% ">
-        <div class="col-sm"></div>
-        <div class="col-sm ">
-            <div class="card">
-                <h4 class="card-header">Sezione Player</h4>
-                <div class="card-body">
-                    <h6 class="card-title" (click)="openAddPlayerInTeamModal()"> °Registra Acquisto</h6>
-                </div>    
-            </div>
+  <div class="row" style="margin-bottom:2% ">
+    <div class="col-sm"></div>
+    <div class="col-sm ">
+      <div class="card">
+        <div class="card">
+          <h4 class="card-header">Registra acquisti</h4>
+          <div class="card-body" (click)="openAddPPortiereInTeamModal()">
+            <h6 class="card-title"> Portiere</h6>
+          </div>
         </div>
-        <div class="col-sm"></div>
+        <div class="card">
+          <div class="card-body" (click)="openAddDifensoreInTeamModal()">
+            <h6 class="card-title"> Difensore</h6>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-body" (click)="openAddCentrocampistaInTeamModal()">
+            <h6 class="card-title"> Centrocampista</h6>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-body" (click)="openAddAttaccanteInTeamModal()">
+            <h6 class="card-title"> Attaccante</h6>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-body" (click)="openChangePlayer()" >
+            <h6 class="card-title"> Scambia un giocatore</h6>
+          </div>
+        </div>
+      </div>
+      <div class="card">
+        <h4 class="card-header">Sezione Budget</h4>
+        <div class="card-body" (click)="openShowBudget()" >
+          <h6 class="card-title"> Guarda Budget</h6>
+        </div>
+      </div>
     </div>
-   
+    <div class="col-sm"></div>
+  </div>
+
 </div>

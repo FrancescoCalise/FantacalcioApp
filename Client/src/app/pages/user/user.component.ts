@@ -1,9 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { ApiService } from 'src/app/services/api.service';
-import { Player, addPlayer } from 'src/app/services/model/player';
-import { NgbModal, NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { ToastrService } from 'ngx-toastr';
-import { Team } from 'src/app/services/model/team';
+import { AddPortiereInTeamModalComponent } from './modals/AddPortiereInTeamModal';
+import { AddDifensoreInTeamModalComponent } from './modals/AddDifensoreInTeamModal';
+import { AddCentrocampistaInTeamModalComponent } from './modals/AddCentrocampistaInTeamModal';
+import { AddAttaccanteInTeamModalComponent } from './modals/AddAttaccanteInTeamModal';
+import { ShowBudgetModalComponent } from './modals/ShowBudgetModalComponent';
 
 @Component({
   selector: 'app-user',
@@ -11,57 +14,40 @@ import { Team } from 'src/app/services/model/team';
   styleUrls: ['./user.component.css']
 })
 export class UserComponent implements OnInit {
-  player:Player[]
-  
-  constructor(private service: ApiService,private modalService: NgbModal) { 
-   
+  constructor(private service: ApiService, private modalService: NgbModal, private toastr: ToastrService) {
   }
 
   ngOnInit() {
-    
   }
 
-  openAddPlayerInTeamModal() {
-    this.modalService.open(addPlayerInTeamModal, {
+  openAddPPortiereInTeamModal() {
+    this.modalService.open(AddPortiereInTeamModalComponent, {
       size: 'lg'
+    });
+  }
+  openAddDifensoreInTeamModal() {
+    this.modalService.open(AddDifensoreInTeamModalComponent, {
+      size: 'lg',
+    });
+  }
+  openAddCentrocampistaInTeamModal() {
+    this.modalService.open(AddCentrocampistaInTeamModalComponent, {
+      size: 'lg',
+    });
+  }
+  openAddAttaccanteInTeamModal() {
+    this.modalService.open(AddAttaccanteInTeamModalComponent, {
+      size: 'lg',
+    });
+  }
+  openChangePlayer() {
+    this.toastr.error('funzione non implementata', 'STOP');
+  }
+  openShowBudget() {
+    this.modalService.open(ShowBudgetModalComponent, {
+      size: 'lg',
     });
   }
 }
 
-@Component({
-  selector: 'app-user-1',
-  templateUrl: './modals/addPlayerInTeam.html',
-  styleUrls: ['./user.component.css']
-})
-  export class addPlayerInTeamModal {
 
-    model = new addPlayer(null,null,null);
-    players: Player[];
-    teams :Team[];
-  
-    constructor(public activeModal: NgbActiveModal,private service: ApiService,private toastr: ToastrService) {
-      this.players = JSON.parse(localStorage.getItem("Player"))
-      this.service.allTeam().subscribe(
-        (data)=>{
-          this.teams= data;
-      },
-      (err) => {
-        this.toastr.error(err.message,'Errore');
-      })
-     
-    }
-    
-    save(id,soldValue,TeamFantaId){
-      this.service.addPlayerInTeam(id,soldValue,TeamFantaId).subscribe(
-        (data) => {
-          this.toastr.success(data,'Giocatore salvato con successo');
-          this.activeModal.close('Close click');
-        },
-        (err) => {
-          this.toastr.error(err.message,'Errore');
-         }
-      );
-      return;
-    }
-    
-  }

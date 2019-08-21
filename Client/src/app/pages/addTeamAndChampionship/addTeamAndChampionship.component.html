@@ -1,0 +1,40 @@
+<div class="container">
+    <div class="row" style="margin-bottom:2% ">
+        <div class="col-sm"></div>
+        <div class="col-sm ">
+            <div class="card">
+                <form (ngSubmit)="save(championshipId.value,teamFantaId.value)" #StorageTeamChampionship="ngForm">
+                    <div class="form-group">
+                        <h4 class="card-header">Seleziona il campionato</h4>
+                        <label for="championship">Nome campionato</label>
+                        <select class="form-control" id="championship" class="form-control"  [(ngModel)]="model.championship" required   
+                                name="championship" #championshipId="ngModel" (change)="update(championshipId.value)">
+                            <option *ngFor="let championship of championships" id="championship" [ngValue]="championship.id">
+                                    {{championship.name}}
+                            </option>
+                        </select>
+                        <div [hidden]="championshipId.valid" class="alert alert-danger">
+                            Il campo è obbligatorio
+                        </div> 
+                    </div>
+                    <div class="form-group">
+                            <h4 class="card-header">Seleziona la tua squadra</h4>
+                            <label for="teamFantaId">Nome Squadra</label>
+                            <select class="form-control" id="teamFantaId" class="form-control"  [(ngModel)]="model.teamFantaId" required   
+                                    name="teamFantaId" #teamFantaId="ngModel"  >
+                                <option *ngFor="let team of teamsFilter" id="teamFantaId" [ngValue]="team.id">
+                                        {{team.name}}
+                                </option>
+                            </select>
+                            <div [hidden]="teamFantaId.valid" class="alert alert-danger">
+                                Il campo è obbligatorio
+                            </div> 
+                        </div>
+                        <button type="submit" class="btn btn-success" [disabled]="!StorageTeamChampionship.form.valid" >Conferma</button>  
+                </form>
+            </div>
+        </div>
+        <div class="col-sm"></div>
+    </div>
+   
+</div>

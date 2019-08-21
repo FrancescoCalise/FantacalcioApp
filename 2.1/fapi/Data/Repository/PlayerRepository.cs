@@ -43,7 +43,7 @@ namespace fantacalcioApi.Data.Repository
         public IEnumerable<Player> GetPlayers()
         {
             return _context.Players
-                .OrderBy(c => c.Id)
+                .OrderBy(c => c.Name)
                 .ToList();
        
         }
