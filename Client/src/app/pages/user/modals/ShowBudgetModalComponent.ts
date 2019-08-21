@@ -33,7 +33,6 @@ export class ShowBudgetModalComponent {
         this.teams = data;
         this.teamsFilter = data.filter(t => t.championshipFantaId === this.teams.find(
           x => x.id.toString() === this.teamFantaId).championshipFantaId);
-          console.log( this.teamsFilter);
       }, (err) => {
         this.toastr.error(err.message, 'Errore');
       });

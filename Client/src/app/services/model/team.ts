@@ -1,5 +1,4 @@
-import { Player } from './player';
-import { Guid } from "guid-typescript";
+import { Guid } from 'guid-typescript';
 
 export interface Team {
 
