@@ -6,11 +6,11 @@ import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-admin-1',
-  templateUrl: './modals/addChampionship.html',
-  styleUrls: ['./admin.component.css']
+  templateUrl: './addChampionship.html',
+  styleUrls: ['../admin.component.css']
 })
 
-export class AddChampionship {
+export class AddChampionshipComponent {
 
   model = new ChampionshipClass(null, null);
   constructor(public activeModal: NgbActiveModal, private service: ApiService, private toastr: ToastrService) {

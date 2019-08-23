@@ -2,8 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { ApiService } from 'src/app/services/api.service';
 import { Player } from 'src/app/services/model/player';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
-import { AddChampionship } from './AddChampionship';
-import { AddTeam } from './AddTeam';
+import { AddChampionshipComponent } from './modals/AddChampionship';
+import { AddTeamComponent } from './modals/AddTeam';
+import { AddPlayerAdminComponent } from './modals/AddPlayerAdmin';
 
 @Component({
   selector: 'app-admin',
@@ -21,16 +22,20 @@ export class AdminComponent implements OnInit {
   }
 
   openAddChampshipModal() {
-    this.modalService.open(AddChampionship, {
+    this.modalService.open(AddChampionshipComponent, {
       size: 'lg'
     });
   }
   openAddTeamModal() {
-    this.modalService.open(AddTeam, {
+    this.modalService.open(AddTeamComponent, {
       size: 'lg'
     });
   }
-
+  openAddPlayer() {
+    this.modalService.open(AddPlayerAdminComponent, {
+      size: 'lg'
+    });
+  }
 }
 
 

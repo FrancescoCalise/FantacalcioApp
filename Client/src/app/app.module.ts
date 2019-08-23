@@ -22,8 +22,9 @@ import { AddAttaccanteInTeamModalComponent } from './pages/user/modals/AddAttacc
 import { AddCentrocampistaInTeamModalComponent } from './pages/user/modals/AddCentrocampistaInTeamModal';
 import { ShowBudgetModalComponent } from './pages/user/modals/ShowBudgetModalComponent';
 import { MyTeamComponent } from './pages/myTeam/myTeam.component';
-import { AddChampionship } from './pages/admin/AddChampionship';
-import { AddTeam } from './pages/admin/AddTeam';
+import { AddChampionshipComponent } from './pages/admin/modals/AddChampionship';
+import { AddTeamComponent } from './pages/admin/modals/AddTeam';
+import { AddPlayerAdminComponent } from './pages/admin/modals/AddPlayerAdmin';
 
 @NgModule({
   declarations: [
@@ -32,13 +33,14 @@ import { AddTeam } from './pages/admin/AddTeam';
     AdminComponent,
     UserComponent,
     MyTeamComponent,
-    AddChampionship,
-    AddTeam,
+    AddChampionshipComponent,
+    AddTeamComponent,
     AddPortiereInTeamModalComponent,
     AddCentrocampistaInTeamModalComponent,
     AddAttaccanteInTeamModalComponent,
     AddDifensoreInTeamModalComponent,
     AddTeamAndChampionshipComponent,
+    AddPlayerAdminComponent,
     ShowBudgetModalComponent
 
 
@@ -60,13 +62,14 @@ import { AddTeam } from './pages/admin/AddTeam';
   ],
   bootstrap: [AppComponent],
   entryComponents: [
-    AddChampionship,
-    AddTeam,
+    AddChampionshipComponent,
+    AddTeamComponent,
     AddPortiereInTeamModalComponent,
     AddCentrocampistaInTeamModalComponent,
     AddAttaccanteInTeamModalComponent,
     AddDifensoreInTeamModalComponent,
-    ShowBudgetModalComponent
+    ShowBudgetModalComponent,
+    AddPlayerAdminComponent
   ]
 })
 export class AppModule { }

@@ -1,0 +1,64 @@
+<div class="modal-header">
+  <h4 class="modal-title">Acquista un calciatore</h4>
+  <button type="button" class="close" aria-label="Close" (click)="activeModal.dismiss('Cross click')">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+
+<div class="conteiner">
+  <div class="row" style="margin-bottom:2% ">
+    <div class="col-sm"></div>
+    <div class="col-sm">
+      <label for="championship">Nome campionato</label>
+      <select [(ngModel)]="championshipSelected" id="championship" name="championship" class="form-control"
+        (change)="update(championshipSelected)">
+        <option *ngFor="let championship of championships" id="championship" [ngValue]="championship.id">
+          {{championship.name}}
+        </option>
+      </select>
+      <form (ngSubmit)="save(teamFantaId.value,id.value,soldValue.value)" #addPlayerAdmin="ngForm">
+        <div class="form-group">
+          <label for="teamFantaId">Nome Squadra</label>
+          <select class="form-control" id="teamFantaId" [(ngModel)]="model.teamFantaId" required name="teamFantaId"
+            #teamFantaId="ngModel" (change)="updateTeam()">
+            <option *ngFor="let team of teamsFilter" id="teamFantaId" [ngValue]="team.id">
+              {{team.name}}
+            </option>
+          </select>
+          <div [hidden]="teamFantaId.valid" class="alert alert-danger">
+            Il campo è obbligatorio
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="id">Nome calciatore</label>
+          <select class="form-control" id="id" [(ngModel)]="model.id" required name="id" #id="ngModel" (change)="updatePlayer()">
+            <option *ngFor="let player of playerFilter" id="id" [ngValue]="player.id">
+              {{player.name}}
+            </option>
+          </select>
+          <div [hidden]="id.valid" class="alert alert-danger">
+            Il campo è obbligatorio
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="soldValue">Costo</label>
+          <input type="number" min="1" class="form-control" id="soldValue" required [(ngModel)]="model.soldValue"
+            name="soldValue" #soldValue="ngModel">
+          <div [hidden]="soldValue.valid" class="alert alert-danger">
+            Il campo è obbligatorio
+          </div>
+        </div>
+        <div class="row" style="margin-bottom: 5% ">
+            <div class="col-sm"> Solt Liberi : <b>{{slotEmpty}}</b> </div>
+            <div class="col-sm">Budget Residuo: <b>{{myTeam?.fantaMilioni}}</b></div>
+        </div>
+
+        <div class="modal-footer">
+          <button type="submit" class="btn btn-success" [disabled]="!addPlayerAdmin.form.valid">Conferma</button>
+          <button type="button" class="btn btn-outline-dark" (click)="activeModal.close('Close click')">Close</button>
+        </div>
+      </form>
+    </div>
+    <div class="col-sm"></div>
+  </div>
+</div>

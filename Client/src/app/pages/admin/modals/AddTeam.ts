@@ -7,11 +7,11 @@ import { TeamClass } from 'src/app/services/model/team';
 
 @Component({
   selector: 'app-admin-1',
-  templateUrl: './modals/addTeam.html',
-  styleUrls: ['./admin.component.css']
+  templateUrl: './addTeam.html',
+  styleUrls: ['../admin.component.css']
 })
 
-export class AddTeam {
+export class AddTeamComponent {
 
   model = new TeamClass(null, null, null);
   allchampionships: Championship[];
