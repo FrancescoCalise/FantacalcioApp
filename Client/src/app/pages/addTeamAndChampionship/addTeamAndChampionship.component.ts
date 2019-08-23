@@ -34,21 +34,22 @@ export class AddTeamAndChampionshipComponent implements OnInit {
         this.championships = data;
         if (this.championships.length > 0) {
           this.model.championshipId = this.championships[0].id;
-          this.teamsFilter = this.teams.filter(t => t.championshipFantaId === this.championships[0].id);
-          this.model.teamId = this.teamsFilter[0].id;
+          this.service.allTeam().subscribe(
+            (team) => {
+              this.teams = team;
+              this.teamsFilter = this.teams.filter(t => t.championshipFantaId === this.championships[0].id);
+              this.model.teamId = this.teamsFilter[0].id;
+            },
+            (err) => {
+              this.toastr.error(err.message, 'Errore');
+            });
         }
 
       },
       (err) => {
         this.toastr.error(err.message, 'Errore');
       });
-    this.service.allTeam().subscribe(
-      (data) => {
-        this.teams = data;
-      },
-      (err) => {
-        this.toastr.error(err.message, 'Errore');
-      });
+
   }
 
   update(championship: string) {
